@@ -17,32 +17,32 @@ Tampilan responsif & ringan
 Cocok untuk studi kasus sistem e-learning dasar, skripsi, atau pengembangan lebih lanjut.
 Dibuat dengan semangat belajar mandiri! 🚀
 
-![alt text](![Screenshot (2593)](https://github.com/user-attachments/assets/88adc0c0-d5ad-47fe-b509-a77e24a141c6)
-?raw=true)
+![Screenshot (2593)](https://github.com/user-attachments/assets/88adc0c0-d5ad-47fe-b509-a77e24a141c6)
 
-![alt text](![Screenshot (2594)](https://github.com/user-attachments/assets/fb216759-e7f8-4486-88a8-c378cdc31fd0)
-?raw=true)
 
-![alt text](![Screenshot (2595)](https://github.com/user-attachments/assets/f1d02d7a-9532-4811-9b72-544129d51a85)
-?raw=true)
+![Screenshot (2594)](https://github.com/user-attachments/assets/fb216759-e7f8-4486-88a8-c378cdc31fd0)
 
-![alt text](![Screenshot (2596)](https://github.com/user-attachments/assets/55a86daf-91a8-46d5-9e3d-c3f261498c6b)
-?raw=true)
 
-![alt text](![Screenshot (2597)](https://github.com/user-attachments/assets/fd946106-6af2-4927-9809-124628222f14)
-?raw=true)
+![Screenshot (2595)](https://github.com/user-attachments/assets/f1d02d7a-9532-4811-9b72-544129d51a85)
 
-![alt text](![Screenshot (2598)](https://github.com/user-attachments/assets/37665d5b-45b4-4a2f-a4bb-90f3034e2938)
-?raw=true)
 
-![alt text](![Screenshot (2599)](https://github.com/user-attachments/assets/f5aeaa1e-467b-4b14-96ee-9e45ff4fa94b)
-?raw=true)
+![Screenshot (2596)](https://github.com/user-attachments/assets/55a86daf-91a8-46d5-9e3d-c3f261498c6b)
 
-![alt text](![Screenshot (2600)](https://github.com/user-attachments/assets/8ba047ef-b1ed-4058-8071-eef6be9b5090)
-?raw=true)
 
-![alt text](![Screenshot (2601)](https://github.com/user-attachments/assets/cf53d81e-98bc-4a89-b567-2d69bc1b038c)
-?raw=true)
+![Screenshot (2597)](https://github.com/user-attachments/assets/fd946106-6af2-4927-9809-124628222f14)
 
-![alt text](![Screenshot (2602)](https://github.com/user-attachments/assets/c58f025d-95d0-4d8d-b7c4-821b48fc20a9)
-?raw=true)
+
+![Screenshot (2598)](https://github.com/user-attachments/assets/37665d5b-45b4-4a2f-a4bb-90f3034e2938)
+
+
+![Screenshot (2599)](https://github.com/user-attachments/assets/f5aeaa1e-467b-4b14-96ee-9e45ff4fa94b)
+
+
+![Screenshot (2600)](https://github.com/user-attachments/assets/8ba047ef-b1ed-4058-8071-eef6be9b5090)
+
+
+![Screenshot (2601)](https://github.com/user-attachments/assets/cf53d81e-98bc-4a89-b567-2d69bc1b038c)
+
+
+![Screenshot (2602)](https://github.com/user-attachments/assets/c58f025d-95d0-4d8d-b7c4-821b48fc20a9)
+
