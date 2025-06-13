@@ -14,13 +14,15 @@ if(isset($_GET['id'])){
     $id = "";
 }
 
-if($id != ""){
+if ($id != "") {
     $sql1 = "SELECT * FROM content WHERE id = '$id'";
     $q1   = mysqli_query($koneksi, $sql1);
     $r1   = mysqli_fetch_array($q1);
-    $judul = $r1['judul'];
-    $isi   = $r1['isi'];
-    $foto  = $r1['foto'];
+    $judul     = $r1['judul'];
+    $isi       = $r1['isi'];
+    $foto      = $r1['foto'];
+    $id_tutor  = $r1['id_tutor'];
+
 
     if($isi == ''){
         $error = "Data tidak ditemukan";
@@ -28,12 +30,14 @@ if($id != ""){
 }
 
 if (isset($_POST['simpan'])){
+    $id_tutor = isset($_POST['id_tutor']) ? $_POST['id_tutor'] : $id_tutor;
     $judul = $_POST['judul'];
     $isi   = $_POST['isi'];
 
-    if ($judul == '' or $isi == ''){
-        $error = "Silakan masukkan data judul dan isi.";
+    if ($judul == '' or $isi == '' or $id_tutor == '') {
+    $error = "Silakan isi semua kolom, termasuk memilih tutor.";
     }
+
 
     if($_FILES['foto']['name']){
         $foto_name = $_FILES['foto']['name'];
@@ -58,10 +62,17 @@ if (isset($_POST['simpan'])){
             $foto_name = $foto;
         }
 
+    if ($id == "") {
+        $cek = mysqli_query($koneksi, "SELECT id FROM content WHERE id_tutor = '$id_tutor'");
+            if(mysqli_num_rows($cek) > 0){
+        $error = "Tutor ini sudah memiliki content.";
+        }
+    }
+
         if($id != ""){
-            $sql1 = "UPDATE content SET judul = '$judul', foto = '$foto_name', isi = '$isi', tgl_isi = NOW() WHERE id = '$id'";
+            $sql1 = "UPDATE content SET judul = '$judul', foto = '$foto_name', isi = '$isi', id_tutor = '$id_tutor', tgl_isi = NOW() WHERE id = '$id'";
         } else {
-            $sql1 = "INSERT INTO content (judul, foto, isi) VALUES ('$judul', '$foto_name', '$isi')";
+            $sql1 = "INSERT INTO content (judul, foto, isi, id_tutor) VALUES ('$judul', '$foto_name', '$isi', '$id_tutor')";
         }
 
         $q1 = mysqli_query($koneksi, $sql1);
@@ -111,6 +122,22 @@ if (isset($_POST['simpan'])){
             <textarea name="isi" class="form-control" id="summernote"><?php echo $isi ?></textarea>
         </div>
     </div>
+    <div class="mb-3 row">
+    <label for="id_tutor" class="col-sm-2 col-form-label">Pilih Tutor</label>
+    <div class="col-sm-10">
+        <select name="id_tutor" class="form-control">
+            <option value="">-- Pilih Tutor --</option>
+            <?php
+            $qtutor = mysqli_query($koneksi, "SELECT id, nama FROM tutors");
+            while($rtutor = mysqli_fetch_array($qtutor)){
+                $selected = ($rtutor['id'] == @$r1['id_tutor']) ? "selected" : "";
+                echo "<option value='{$rtutor['id']}' $selected>{$rtutor['nama']}</option>";
+            }
+            ?>
+        </select>
+    </div>
+</div>
+
     <div class="mb-3 row">
         <div class="col-sm-2"></div>
         <div class="col-sm-10">

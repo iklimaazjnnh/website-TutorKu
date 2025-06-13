@@ -16,7 +16,7 @@ $data = [];
 $new_count = 0;
 $last_seen = null;
 
-// 1. Ambil waktu terakhir buka chat
+//Ambil waktu terakhir buka chat
 if ($id_members) {
     $sql_seen = "SELECT last_open_chat FROM langganan WHERE id_members = $id_members AND id_kursus = $id_kursus";
     $res_seen = mysqli_query($koneksi, $sql_seen);
@@ -25,7 +25,7 @@ if ($id_members) {
     }
 }
 
-// 2. Ambil semua isi chat (tidak difilter oleh waktu)
+//Ambil semua isi chat (tidak difilter oleh waktu)
 $sql = "SELECT c.*, 
         COALESCE(m.nama_lengkap, t.nama, 'Anonim') AS nama_pengirim
         FROM chat_room c
@@ -48,7 +48,7 @@ while ($row = mysqli_fetch_assoc($q)) {
     ];
 }
 
-// 3. Hitung pesan baru berdasarkan waktu terakhir buka chat
+//Hitung pesan baru berdasarkan waktu terakhir buka chat
 if ($last_seen) {
     $sql_new = "SELECT COUNT(*) as total FROM chat_room 
                 WHERE id_kursus = $id_kursus 
@@ -59,7 +59,7 @@ if ($last_seen) {
     }
 }
 
-// 4. Setelah semua data diambil, baru update waktu buka chat
+//Setelah semua data diambil, baru update waktu buka chat
 if ($id_members) {
     $now = date('Y-m-d H:i:s');
     $sql_update = "UPDATE langganan SET last_open_chat = '$now' 
@@ -67,7 +67,7 @@ if ($id_members) {
     mysqli_query($koneksi, $sql_update);
 }
 
-// 5. Kirim data
+//Kirim data
 echo json_encode([
     "messages" => $data,
     "new_count" => $new_count

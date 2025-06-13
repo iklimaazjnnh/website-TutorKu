@@ -139,86 +139,113 @@ if (mysqli_num_rows($q_materi) > 0) {
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    let isChatOpen = false;
-    const openChatBtn = document.getElementById("openChatBtn");
+document.addEventListener("DOMContentLoaded", () => {
+    const openChatBtn  = document.getElementById("openChatBtn");
     const closeChatBtn = document.getElementById("closeChatBtn");
-    const popupChat = document.getElementById("popupChat");
-    const chatBox = document.getElementById("chat-box");
-    const chatForm = document.getElementById("chat-form");
-    const pesanInput = document.getElementById("pesan");
-    const idKursus = <?php echo json_encode($id_kursus); ?>;
+    const popupChat    = document.getElementById("popupChat");
+    const chatBox      = document.getElementById("chat-box");
+    const chatForm     = document.getElementById("chat-form");
+    const pesanInput   = document.getElementById("pesan");
+    const unreadBadge  = document.getElementById("unreadBadge");
+    const idKursus     = <?php echo json_encode($id_kursus); ?>;
 
-    if (openChatBtn && closeChatBtn && popupChat) {
-        openChatBtn.onclick = () => {
-            popupChat.style.display = 'block';
-            isChatOpen = true;
-            document.getElementById("unreadBadge").style.display = "none";
-            const now = new Date().toISOString().slice(0, 19).replace("T", " ");
-            localStorage.setItem(`lastReadTime_${idKursus}`, now);
-        };
-        closeChatBtn.onclick = () => {
-            popupChat.style.display = 'none';
-            isChatOpen = false;
-        };
+    /* ---------- State ---------- */
+    let isChatOpen = false;
+
+    /* ---------- Helper ---------- */
+    const nowISO = () =>
+        new Date().toISOString().slice(0, 19).replace("T", " ");
+
+    /* ---------- Render pesan ---------- */
+    function renderMessages(messages) {
+        chatBox.innerHTML = "";
+        messages.forEach(row => {
+            const bubble = document.createElement("div");
+            bubble.classList.add("chat-message");
+            bubble.innerHTML =
+                `<strong>${row.nama}</strong>: ${row.pesan}<br><small>${row.waktu}</small>`;
+            chatBox.appendChild(bubble);
+        });
+        chatBox.scrollTop = chatBox.scrollHeight;
     }
 
+    /* ---------- Ambil semua pesan ---------- */
     function loadChat() {
-        fetch("chat_ambil.php?id_kursus=" + idKursus)
-            .then(response => response.json())
-            .then(data => {
-                chatBox.innerHTML = "";
-                data.messages.forEach(row => {
-                    const div = document.createElement("div");
-                    div.classList.add("chat-message");
-                    div.innerHTML = `<strong>${row.nama}</strong>: ${row.pesan} <br><small>${row.waktu}</small>`;
-                    chatBox.appendChild(div);
-                });
-                chatBox.scrollTop = chatBox.scrollHeight;
-            })
-            .catch(error => console.error("Fetch error:", error));
+        fetch(`chat_ambil.php?id_kursus=${idKursus}`)
+            .then(res => res.json())
+            .then(data => renderMessages(data.messages))
+            .catch(err => console.error("Gagal memuat chat:", err));
     }
 
-    chatForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const formData = new FormData(chatForm);
-        fetch("chat_kirim.php", {
-            method: "POST",
-            body: formData
-        }).then(res => res.text())
-          .then(result => {
-              if (result === "ok") {
-                  pesanInput.value = "";
-                  loadChat();
-              } else {
-                  alert("Gagal mengirim pesan: " + result);
-              }
-          });
-    });
+    /* ---------- Tandai pesan sudah dibaca & buka popup ---------- */
+    function openChat() {
+        popupChat.style.display = "block";
+        isChatOpen = true;
 
-    loadChat();
-    setInterval(loadChat, 5000);
-
-    function checkUnreadMessages() {
-        if (isChatOpen) return;
-        fetch("chat_unread.php?id_kursus=" + idKursus)
+        fetch(`chat_ambil.php?id_kursus=${idKursus}`) 
             .then(res => res.json())
             .then(data => {
-                const badge = document.getElementById("unreadBadge");
-                if (data.jumlah_baru > 0) {
-                    badge.innerText = data.jumlah_baru;
-                    badge.style.display = "inline-block";
+                renderMessages(data.messages);
+                unreadBadge.style.display = "none";  
+                localStorage.setItem(`lastReadTime_${idKursus}`, nowISO());
+            })
+            .catch(err => console.error("Gagal membuka chat:", err));
+    }
+
+    /* ---------- Tutup popup ---------- */
+    function closeChat() {
+        popupChat.style.display = "none";
+        isChatOpen = false;
+    }
+
+    /* ---------- Periksa pesan baru ---------- */
+    function checkUnreadMessages() {
+        if (isChatOpen) return;  
+
+        const lastRead = localStorage.getItem(`lastReadTime_${idKursus}`) || "";
+        fetch(`chat_unread.php?id_kursus=${idKursus}&last_read=${encodeURIComponent(lastRead)}`)
+            .then(res => res.json())
+            .then(({ jumlah_baru }) => {
+                if (jumlah_baru > 0) {
+                    unreadBadge.textContent = jumlah_baru;
+                    unreadBadge.style.display = "inline-block";
                 } else {
-                    badge.style.display = "none";
+                    unreadBadge.style.display = "none";
                 }
             })
             .catch(err => console.error("Notif error:", err));
     }
 
+
+    function sendMessage(e) {
+        e.preventDefault();
+        const formData = new FormData(chatForm);
+
+        fetch("chat_kirim.php", { method: "POST", body: formData })
+            .then(res => res.text())
+            .then(result => {
+                if (result === "ok") {
+                    pesanInput.value = "";
+                    loadChat();                           
+                } else {
+                    alert("Gagal mengirim pesan: " + result);
+                }
+            });
+    }
+
+    /* ---------- Event listener ---------- */
+    openChatBtn?.addEventListener("click", openChat);
+    closeChatBtn?.addEventListener("click", closeChat);
+    chatForm.addEventListener("submit", sendMessage);
+
+    /* ---------- Inisialisasi ---------- */
     checkUnreadMessages();
+    setInterval(loadChat, 5000);
     setInterval(checkUnreadMessages, 5000);
 });
 </script>
+
+
 <?php endif; ?>
 
 <?php include("inc_footer.php"); ?>
