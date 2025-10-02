@@ -21,22 +21,6 @@ if($nama == ''){
     echo "<div><p>Maaf data tidak ditemukan : (</p></div>";
 }else {
     ?>
-    <style>
-        .lokasi_foto {
-            float: left;
-            width: 20%;
-            margin-top: 20px;
-        }
-        .lokasi_foto img{
-            width: 100%;
-            border-radius: 50%;
-        }
-        .lokasi_deskripsi {
-            margin-top: 20px;
-            float: right;
-            width: 75%;
-        }
-    </style>
     <div class="lokasi_foto">
     <img src="<?php echo url_dasar()."/gambar/".partners_foto($r1['id']) ?>"/>
     </div>

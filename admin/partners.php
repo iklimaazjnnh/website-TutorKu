@@ -51,7 +51,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th class="col-1">#</th>
+                    <th class="col-1">No</th>
                     <th class="col-2">Foto</th>
                     <th>Nama</th>
                     <th class="col-2">Aksi</th>

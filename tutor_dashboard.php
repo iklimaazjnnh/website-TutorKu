@@ -27,7 +27,6 @@ $nama_tutor = $_SESSION['tutor_nama'];
         GROUP BY c.id
         ORDER BY c.id DESC";
 
-
     $stmt = mysqli_prepare($koneksi, $sql);
     if ($stmt) {
         mysqli_stmt_bind_param($stmt, "i", $id_tutor);
@@ -40,7 +39,7 @@ $nama_tutor = $_SESSION['tutor_nama'];
                 <div class='card-course'>
                     <h3>{$row['judul']}</h3>
                     <p>💬 Jumlah Pesan: <strong>{$row['jumlah_pesan']}</strong></p>
-                    <a href='tutor_chat_room.php?id_kursus={$row['id']}' class='btn-chat'>Buka Chat</a>
+                    <a href='tutor_chat_list.php?id_kursus={$row['id']}' class='btn-chat'>Buka Chat</a>
                 </div>";
             }
         } else {
@@ -53,51 +52,5 @@ $nama_tutor = $_SESSION['tutor_nama'];
     }
     ?>
 </div>
-
-<style>
-.dashboard-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.card-course {
-    background-color: #f9f9f9;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-left: 6px solid #007bff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-}
-
-.card-course:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-}
-
-.card-course h3 {
-    margin: 0 0 10px;
-    font-size: 18px;
-    color: #333;
-}
-
-.btn-chat {
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    margin-top: 10px;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-}
-
-.btn-chat:hover {
-    background-color: #0056b3;
-}
-</style>
 
 <?php include("inc_footer.php") ?>

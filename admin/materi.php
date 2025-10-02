@@ -50,7 +50,7 @@ if ($op == 'delete') {
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th>#</th>
+            <th>No</th>
             <th>Foto</th>
             <th>Judul</th>
             <th>Kursus</th>

@@ -51,8 +51,9 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th class="col-1">#</th>
+                    <th class="col-1">No</th>
                     <th class="col-2">Foto</th>
+                    <th>ID Tutor</th>
                     <th>Nama</th>
                     <th>Email</th>
                     <th>Password</th>
@@ -86,6 +87,7 @@
                         <tr>
                             <td><?php echo $nomor++ ?></td>
                              <td><img src="../gambar/<?php echo tutors_foto($r1['id']) ?>" style="max-height:100px;max-width:100px"/></td>
+                             <td><?php echo $r1['id'] ?></td>
                              <td><?php echo $r1['nama'] ?></td>
                              <td><?php echo $r1['email'] ?></td>
                             <td><?php echo $r1['password'] ?></td>

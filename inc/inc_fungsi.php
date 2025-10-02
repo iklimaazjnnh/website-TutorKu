@@ -148,7 +148,7 @@ use PHPMailer\PHPMailer\Exception;
 function kirim_email($email_penerima, $nama_penerima, $judul_email, $isi_email){
 
     $email_pengirim = "iklimaazizahjannah@gmail.com";
-    $nama_pengirim  = "noreplay";
+    $nama_pengirim  = "TutorKu";
 
 //Load Composer's autoloader (created by composer, not included with PHPMailer)
 require getcwd(). '/vendor/autoload.php';
@@ -158,12 +158,13 @@ $mail = new PHPMailer(true);
 
 try {
     //Server settings
-    $mail->SMTPDebug = 0;                      //Enable verbose debug output
+    $mail->SMTPDebug = 3; // atau 3 untuk lebih detail
+$mail->Debugoutput = 'html';
     $mail->isSMTP();                                            //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
     $mail->Username   = $email_pengirim;                     //SMTP username
-    $mail->Password   = 'fcvdeienlxnblyoc';                               //SMTP password
+    $mail->Password   = 'yimtytvnmrmzpqeo';                               //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 

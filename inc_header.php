@@ -1,5 +1,10 @@
 <?php 
-session_start();
+// Mulai session hanya jika belum ada
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Include file lain
 include_once("inc/inc_koneksi.php");
 include_once("inc/inc_fungsi.php");
 ?>
@@ -19,7 +24,6 @@ include_once("inc/inc_fungsi.php");
       rel="stylesheet"
     />
 
-
     <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
 
@@ -38,22 +42,18 @@ include_once("inc/inc_fungsi.php");
                     <li><a href="<?php echo url_dasar()?>#partners">Partners</a></li>
                     <li><a href="<?php echo url_dasar()?>#contact">Contact</a></li>
                     <?php 
-if (isset($_SESSION['members_nama_lengkap'])) { ?>
-  <li><a href="<?php echo url_dasar()?>/content.php">My Course</a></li>
-  <li><a href="<?php echo url_dasar()?>/ganti_profile.php"><?php echo $_SESSION['members_nama_lengkap']; ?></a></li>
-  <li><a href="<?php echo url_dasar()?>/logout.php">Logout</a></li>
-
-<?php 
-} elseif (isset($_SESSION['tutor_nama'])) { ?>
-  <li><a href="<?php echo url_dasar()?>/tutor_dashboard.php">Dashboard Tutor</a></li>
-  <li><a href="<?php echo url_dasar()?>/logout.php">Logout</a></li>
-
-<?php 
-} else { ?>
-  <li><a href="pendaftaran.php" class="tbl-biru">Sign Up</a></li>
-<?php } ?>
-
-
+                    if (isset($_SESSION['members_nama_lengkap'])) { ?>
+                        <li><a href="<?php echo url_dasar()?>/content.php">My Course</a></li>
+                        <li><a href="<?php echo url_dasar()?>/ganti_profile.php"><?php echo $_SESSION['members_nama_lengkap']; ?></a></li>
+                        <li><a href="<?php echo url_dasar()?>/logout.php">Logout</a></li>
+                    <?php 
+                    } elseif (isset($_SESSION['tutor_nama'])) { ?>
+                        <li><a href="<?php echo url_dasar()?>/tutor_dashboard.php">Dashboard Tutor</a></li>
+                        <li><a href="<?php echo url_dasar()?>/logout.php">Logout</a></li>
+                    <?php 
+                    } else { ?>
+                        <li><a href="pendaftaran.php" class="tbl-biru">Sign Up</a></li>
+                    <?php } ?>
                 </ul>
             </div>
         </div>

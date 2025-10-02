@@ -45,7 +45,7 @@ if ($op == 'delete') {
 <table class="table table-striped">
     <thead>
         <tr>
-            <th class="col-1">#</th>
+            <th class="col-1">No</th>
             <th class="col-2">Cover</th>
             <th>Judul</th>
             <th class="col-2">Aksi</th>
