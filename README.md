@@ -42,7 +42,7 @@ Dibuat dengan semangat belajar mandiri! 🚀
 
 
 
-![Screenshot (2601)](https://github.com/user-attachments/assets/cf53d81e-98bc-4a89-b567-2d69bc1b038c)
+<img width="1349" height="629" alt="Image" src="https://github.com/user-attachments/assets/631d4c53-66c0-48a6-937a-ab8cbb0a1021" />
 
 
 ![Screenshot (2602)](https://github.com/user-attachments/assets/c58f025d-95d0-4d8d-b7c4-821b48fc20a9)
