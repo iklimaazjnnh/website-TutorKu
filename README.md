@@ -47,6 +47,11 @@ Dibuat dengan semangat belajar mandiri! 🚀
 
 ![Screenshot (2602)](https://github.com/user-attachments/assets/c58f025d-95d0-4d8d-b7c4-821b48fc20a9)
 
+<img width="1342" height="610" alt="Image" src="https://github.com/user-attachments/assets/62b4e0c9-1f8b-407f-aa65-f13631fad7c9" />
+
+
+<img width="1343" height="592" alt="Image" src="https://github.com/user-attachments/assets/37e24e39-df51-4217-a8a4-5979bd1f3001" />
+
 
 DATABASE
 
