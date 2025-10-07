@@ -158,7 +158,7 @@ $mail = new PHPMailer(true);
 
 try {
     //Server settings
-    $mail->SMTPDebug = 3; // atau 3 untuk lebih detail
+    $mail->SMTPDebug = 0; 
 $mail->Debugoutput = 'html';
     $mail->isSMTP();                                            //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
