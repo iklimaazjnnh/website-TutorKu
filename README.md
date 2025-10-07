@@ -45,7 +45,11 @@ Dibuat dengan semangat belajar mandiri! 🚀
 <img width="1349" height="629" alt="Image" src="https://github.com/user-attachments/assets/631d4c53-66c0-48a6-937a-ab8cbb0a1021" />
 
 
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/41444c5f-81b9-4a83-b2d4-f2a88d371b3e" />
+
+
 ![Screenshot (2602)](https://github.com/user-attachments/assets/c58f025d-95d0-4d8d-b7c4-821b48fc20a9)
+
 
 <img width="1342" height="610" alt="Image" src="https://github.com/user-attachments/assets/62b4e0c9-1f8b-407f-aa65-f13631fad7c9" />
 
