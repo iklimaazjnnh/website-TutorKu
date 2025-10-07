@@ -41,8 +41,19 @@ Dibuat dengan semangat belajar mandiri! 🚀
 ![Screenshot (2600)](https://github.com/user-attachments/assets/8ba047ef-b1ed-4058-8071-eef6be9b5090)
 
 
-![Screenshot (2601)](https://github.com/user-attachments/assets/cf53d81e-98bc-4a89-b567-2d69bc1b038c)
+
+<img width="1349" height="629" alt="Image" src="https://github.com/user-attachments/assets/631d4c53-66c0-48a6-937a-ab8cbb0a1021" />
 
 
 ![Screenshot (2602)](https://github.com/user-attachments/assets/c58f025d-95d0-4d8d-b7c4-821b48fc20a9)
+
+<img width="1342" height="610" alt="Image" src="https://github.com/user-attachments/assets/62b4e0c9-1f8b-407f-aa65-f13631fad7c9" />
+
+
+<img width="1343" height="592" alt="Image" src="https://github.com/user-attachments/assets/37e24e39-df51-4217-a8a4-5979bd1f3001" />
+
+
+DATABASE
+
+<img width="1113" height="607" alt="Image" src="https://github.com/user-attachments/assets/0d0fc843-1642-4251-94d3-2b48eb47cd11" />
 
